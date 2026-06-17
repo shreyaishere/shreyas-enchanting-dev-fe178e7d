@@ -41,7 +41,7 @@ const STATS = [
   { label: "Full Stack Projects", value: 6 },
   { label: "Technologies Learned", value: 14 },
   { label: "Certifications", value: 3 },
-  { label: "Internship Months", value: 3 },
+  { label: "Internship Months", value: 1 },
 ];
 
 type Skill = { name: string; level: number; cat: "Frontend" | "Backend" | "Database" | "Tools" };
@@ -287,7 +287,7 @@ function Loader({ done }: { done: boolean }) {
           <div className="absolute inset-0 rounded-full border-2 border-white/10" />
           <div className="absolute inset-0 animate-spin-slow rounded-full border-2 border-transparent border-t-[oklch(0.78_0.18_195)] border-r-[oklch(0.72_0.22_320)]" />
           <div className="absolute inset-3 grid place-items-center rounded-full glass">
-            <span className="font-display text-xl font-bold gradient-text">SS</span>
+            <img src="/profile.jpeg" alt="Shreya Shukla" className="profile-avatar" />
           </div>
         </div>
         <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
@@ -391,8 +391,8 @@ function Nav({ active }: { active: string }) {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <nav className="glass mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-4 py-3 sm:px-6">
         <a href="#home" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-[image:var(--grad-hero)] font-display text-sm font-bold text-background">
-            SS
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-[image:var(--grad-hero)] font-display text-sm font-bold text-background overflow-hidden">
+            <img src="/profile.jpeg" alt="Shreya Shukla" className="profile-avatar profile-avatar--small" />
           </span>
           <span className="hidden font-display text-base font-semibold sm:block">
             Shreya<span className="text-[oklch(0.78_0.18_195)]">.</span>
@@ -525,8 +525,8 @@ function Hero() {
         <div className="reveal relative mx-auto aspect-square w-full max-w-md">
           <div className="absolute inset-0 animate-spin-slow rounded-full border border-dashed border-white/15" />
           <div className="absolute inset-6 animate-pulse-ring rounded-full bg-[image:var(--grad-hero)] opacity-30 blur-2xl" />
-          <div className="glass absolute inset-8 grid place-items-center rounded-full">
-            <span className="font-display text-7xl font-black gradient-text">SS</span>
+          <div className="glass absolute inset-8 grid place-items-center rounded-full overflow-hidden">
+            <img src="/profile.jpeg" alt="Shreya Shukla" className="profile-avatar profile-avatar--hero" />
           </div>
           {FLOATING_TECHS.map((t, i) => {
             const angle = (i / FLOATING_TECHS.length) * Math.PI * 2;
@@ -1267,8 +1267,8 @@ function Footer() {
       <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-[image:var(--grad-hero)] font-display text-sm font-bold text-background">
-              SS
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-[image:var(--grad-hero)] font-display text-sm font-bold text-background overflow-hidden">
+              <img src="/profile.jpeg" alt="Shreya Shukla" className="profile-avatar profile-avatar--small" />
             </span>
             <span className="font-display text-base font-semibold">Shreya Shukla</span>
           </div>
