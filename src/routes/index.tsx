@@ -199,6 +199,24 @@ function useCounter(target: number, run: boolean, duration = 1400) {
   return v;
 }
 
+function useTheme() {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  useEffect(() => {
+    const saved = (localStorage.getItem("theme") as "dark" | "light" | null) ?? "dark";
+    setTheme(saved);
+    document.documentElement.classList.toggle("light", saved === "light");
+  }, []);
+  const toggle = () => {
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      document.documentElement.classList.toggle("light", next === "light");
+      localStorage.setItem("theme", next);
+      return next;
+    });
+  };
+  return { theme, toggle };
+}
+
 /* ============================= Page ============================= */
 
 function PortfolioPage() {
