@@ -1078,9 +1078,18 @@ function Contact() {
     if (form.message.trim().length < 10) errs.message = "Message must be at least 10 characters";
     setErrors(errs);
     if (Object.keys(errs).length) return;
+
+    // Open user's email client with a prefilled message to Shreya
+    const to = "shuklashreya731@gmail.com";
+    const subject = encodeURIComponent(`[Portfolio] ${form.subject}`);
+    const body = encodeURIComponent(
+      `Hi Shreya,\n\n${form.message}\n\n— ${form.name}\n${form.email}`,
+    );
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+
     setSent(true);
     setForm({ name: "", email: "", subject: "", message: "" });
-    setTimeout(() => setSent(false), 4000);
+    setTimeout(() => setSent(false), 5000);
   };
 
   return (
