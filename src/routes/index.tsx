@@ -501,8 +501,8 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#"
-              onClick={(e) => e.preventDefault()}
+              href="/Shreya_Shukla_Resume.pdf"
+              download
               className="group inline-flex items-center gap-2 rounded-xl bg-[image:var(--grad-hero)] px-5 py-3 text-sm font-semibold text-background transition-transform hover:scale-[1.03] glow"
             >
               ↓ Download Resume
