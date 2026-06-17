@@ -287,7 +287,7 @@ function Loader({ done }: { done: boolean }) {
           <div className="absolute inset-0 rounded-full border-2 border-white/10" />
           <div className="absolute inset-0 animate-spin-slow rounded-full border-2 border-transparent border-t-[oklch(0.78_0.18_195)] border-r-[oklch(0.72_0.22_320)]" />
           <div className="absolute inset-3 grid place-items-center rounded-full glass">
-            <img src="/profile.jpeg" alt="Shreya Shukla" className="profile-avatar" />
+            SS
           </div>
         </div>
         <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
