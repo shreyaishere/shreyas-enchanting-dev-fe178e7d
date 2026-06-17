@@ -199,6 +199,24 @@ function useCounter(target: number, run: boolean, duration = 1400) {
   return v;
 }
 
+function useTheme() {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  useEffect(() => {
+    const saved = (localStorage.getItem("theme") as "dark" | "light" | null) ?? "dark";
+    setTheme(saved);
+    document.documentElement.classList.toggle("light", saved === "light");
+  }, []);
+  const toggle = () => {
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      document.documentElement.classList.toggle("light", next === "light");
+      localStorage.setItem("theme", next);
+      return next;
+    });
+  };
+  return { theme, toggle };
+}
+
 /* ============================= Page ============================= */
 
 function PortfolioPage() {
@@ -368,6 +386,7 @@ function Particles() {
 
 function Nav({ active }: { active: string }) {
   const [open, setOpen] = useState(false);
+  const { theme, toggle } = useTheme();
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <nav className="glass mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-4 py-3 sm:px-6">
@@ -398,12 +417,29 @@ function Nav({ active }: { active: string }) {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden rounded-xl bg-[image:var(--grad-hero)] px-4 py-2 text-sm font-semibold text-background transition-transform hover:scale-[1.03] md:inline-block"
-        >
-          Hire Me
-        </a>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggle}
+            aria-label="Toggle theme"
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5 text-base transition-colors hover:bg-white/10"
+          >
+            {theme === "dark" ? "☀" : "☾"}
+          </button>
+          <a
+            href="/Shreya_Shukla_Resume.pdf"
+            download
+            className="hidden rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold transition-colors hover:bg-white/10 md:inline-block"
+          >
+            ↓ Resume
+          </a>
+          <a
+            href="#contact"
+            className="hidden rounded-xl bg-[image:var(--grad-hero)] px-4 py-2 text-sm font-semibold text-background transition-transform hover:scale-[1.03] md:inline-block"
+          >
+            Hire Me
+          </a>
+        </div>
 
         <button
           onClick={() => setOpen((v) => !v)}
@@ -465,8 +501,8 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#"
-              onClick={(e) => e.preventDefault()}
+              href="/Shreya_Shukla_Resume.pdf"
+              download
               className="group inline-flex items-center gap-2 rounded-xl bg-[image:var(--grad-hero)] px-5 py-3 text-sm font-semibold text-background transition-transform hover:scale-[1.03] glow"
             >
               ↓ Download Resume
@@ -1042,9 +1078,18 @@ function Contact() {
     if (form.message.trim().length < 10) errs.message = "Message must be at least 10 characters";
     setErrors(errs);
     if (Object.keys(errs).length) return;
+
+    // Open user's email client with a prefilled message to Shreya
+    const to = "shuklashreya731@gmail.com";
+    const subject = encodeURIComponent(`[Portfolio] ${form.subject}`);
+    const body = encodeURIComponent(
+      `Hi Shreya,\n\n${form.message}\n\n— ${form.name}\n${form.email}`,
+    );
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+
     setSent(true);
     setForm({ name: "", email: "", subject: "", message: "" });
-    setTimeout(() => setSent(false), 4000);
+    setTimeout(() => setSent(false), 5000);
   };
 
   return (
@@ -1117,7 +1162,7 @@ function Contact() {
             </button>
             {sent && (
               <div className="animate-reveal mt-4 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-sm text-emerald-200">
-                ✓ Thanks! Your message has been received. I'll reply soon.
+                ✓ Opening your email app… just hit send and your message reaches me.
               </div>
             )}
           </form>
