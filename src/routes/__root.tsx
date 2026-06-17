@@ -91,6 +91,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Shreya Shukla — Full Stack Developer" },
+      { name: "description", content: "A modern, interactive portfolio website showcasing Shreya Shukla's full-stack development skills and projects." },
+      { property: "og:description", content: "A modern, interactive portfolio website showcasing Shreya Shukla's full-stack development skills and projects." },
+      { name: "twitter:description", content: "A modern, interactive portfolio website showcasing Shreya Shukla's full-stack development skills and projects." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2ec6f954-d62d-45c6-9977-78f55a3fe0f6/id-preview-19ad7e89--45ce5142-2b6a-412c-94c3-751ea3e5e6c2.lovable.app-1781689462405.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2ec6f954-d62d-45c6-9977-78f55a3fe0f6/id-preview-19ad7e89--45ce5142-2b6a-412c-94c3-751ea3e5e6c2.lovable.app-1781689462405.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
