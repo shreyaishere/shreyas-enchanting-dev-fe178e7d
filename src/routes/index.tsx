@@ -417,12 +417,29 @@ function Nav({ active }: { active: string }) {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden rounded-xl bg-[image:var(--grad-hero)] px-4 py-2 text-sm font-semibold text-background transition-transform hover:scale-[1.03] md:inline-block"
-        >
-          Hire Me
-        </a>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggle}
+            aria-label="Toggle theme"
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5 text-base transition-colors hover:bg-white/10"
+          >
+            {theme === "dark" ? "☀" : "☾"}
+          </button>
+          <a
+            href="/Shreya_Shukla_Resume.pdf"
+            download
+            className="hidden rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold transition-colors hover:bg-white/10 md:inline-block"
+          >
+            ↓ Resume
+          </a>
+          <a
+            href="#contact"
+            className="hidden rounded-xl bg-[image:var(--grad-hero)] px-4 py-2 text-sm font-semibold text-background transition-transform hover:scale-[1.03] md:inline-block"
+          >
+            Hire Me
+          </a>
+        </div>
 
         <button
           onClick={() => setOpen((v) => !v)}
