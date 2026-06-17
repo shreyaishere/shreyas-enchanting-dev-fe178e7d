@@ -1162,7 +1162,7 @@ function Contact() {
             </button>
             {sent && (
               <div className="animate-reveal mt-4 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-sm text-emerald-200">
-                ✓ Thanks! Your message has been received. I'll reply soon.
+                ✓ Opening your email app… just hit send and your message reaches me.
               </div>
             )}
           </form>
